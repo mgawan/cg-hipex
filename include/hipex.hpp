@@ -47,4 +47,13 @@ namespace hipex{
         ballot_ = pred_sh[0];
         return ballot_;
     }
+
+    __device__ uint32_t meta_group_size(cooperative_groups::thread_group &g){
+        return (blockDim.x/g.size());
+    }
+
+    __device__ uint32_t meta_group_rank(cooperative_groups::thread_group &g){
+       return (threadIdx.x/g.size());
+    }
+
 }
