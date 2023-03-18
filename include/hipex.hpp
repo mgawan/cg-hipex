@@ -7,7 +7,7 @@ using namespace cooperative_groups;
 #define GRPSIZE 32
 namespace hipex{
 
-    __device__ uint32_t reduce(cooperative_groups::thread_group &g, uint32_t* target){
+    __device__  reduce(cooperative_groups::thread_group &g, uint32_t* target){
         
         int lane = (int)g.thread_rank();
         uint32_t val = target[lane];
